@@ -1,0 +1,6 @@
+{
+  "name": "a11yrocks",
+  "dependencies": {
+    "handlebars": "^4.0.5"
+  }
+}

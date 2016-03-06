@@ -1,0 +1,404 @@
+@import "font-awesome-4.5.0/font-awesome.less";
+
+@font: "Roboto", sans-serif;
+@condensedFont: "Roboto Condensed", sans-serif;
+@monoFont: "Roboto Mono";
+@extraLargeFontSize: 55px;
+@fontSize: 16px;
+@smallerFontSize: 14px;
+@lightFontWeight: 300;
+@normalFontWeight: normal;
+
+
+@darkGrey: #424242;
+@lightGrey: #E0E0E0;
+@extraLightGrey: #FEFEFE;
+@greyShadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+@darkGreyShadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 20px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.6);
+
+@bodyFont: @font;
+@bodyFontSize: @fontSize;
+@bodyFontWeight: @lightFontWeight;
+
+@headingFont: @condensedFont;
+@headingFontSize: @extraLargeFontSize;
+@headingFontWeight: @lightFontWeight;
+@headingColor: @darkGrey;
+
+@descriptionTermFontWeight: @normalFontWeight;
+
+@formBorderColor : @lightGrey;
+
+@buttonFontSize: @fontSize;
+@buttonFontWeight: @lightFontWeight;
+@buttonColor: #fff;
+@buttonBackgroundColor: @darkGrey;
+@buttonShadow: @greyShadow;
+@buttonFocusedShadow: @darkGreyShadow;
+
+@inputFontSize: @fontSize;
+@inputColor: @darkGrey;
+@inputFontWeight: @normalFontWeight;
+@inputLabelColor: @darkGrey;
+@inputUnderlineNotFocusedColor: @lightGrey;
+@inputUnderlineFocusedColor: @darkGrey;
+
+@complianceBadgeFontSize: @smallerFontSize;
+@complianceBadgeColor: @darkGrey;
+@complianceBadgeBackgroundColor: @extraLightGrey;
+@complianceBadgeFont: @condensedFont;
+@complianceBadgeShadow: @greyShadow;
+
+@fgColorFont: @monoFont;
+@fgColorFontSize: @smallerFontSize;
+
+@bgColorFont: @monoFont;
+@bgColorFontSize: @smallerFontSize;
+@bgColorFontWeight: @normalFontWeight;
+@bgColorBackgroundColor: @darkGrey;
+@bgColorColor: #fff;
+@bgColorShadow: @greyShadow;
+
+@transitionAnimation: cubic-bezier(0.4, 0, 0.2, 1);
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.offscreen {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px,1px,1px,1px);
+  clip-path: polygon(0px 0px, 0px 0px,0px 0px, 0px 0px);
+  overflow: hidden!important;
+}
+
+html {
+  box-sizing: border-box;
+  height:100%;
+}
+
+body {
+  font-family: @bodyFont;
+  font-size: @bodyFontSize;
+  font-weight: @bodyFontWeight;
+  margin:0;
+}
+
+header {
+  padding: 0 20px;
+}
+
+footer {
+  bottom:0;
+  padding:20px;
+  clear:both;
+  display:block;
+}
+
+h1 {
+  color: @headingColor;
+  margin: 10px 0;
+  font-family: @headingFont;
+  font-size: @headingFontSize;
+  font-weight: @headingFontWeight;
+}
+
+form {
+  border: solid 1px @formBorderColor;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 2px;
+}
+
+label[for="bg-colors"], label[for="fg-colors"] {
+  display: block;
+  color: @inputLabelColor;
+}
+
+label[for="fg-colors"] {
+  margin-top: 15px;
+}
+
+label[for^="show-"] {
+  display: inline-block;
+}
+
+input[type="checkbox"] {
+  .offscreen;
+  position: absolute;
+  z-index: 1;
+  top:50%;
+  left:50%;
+
+  &:checked + label {
+    .fa-check {
+      display:inline-block;
+      color:#fff;
+    }
+  }
+
+  & + label {
+    margin: 0 0 0 -4px;
+    position: relative;
+    height:34px;
+    line-height: 34px;
+    padding: 0 10px 0 0;
+    z-index:2;
+    cursor: pointer;
+
+    .fa-stack {
+      font-size:14px;
+      color:@darkGrey;
+      transition: color .5s @transitionAnimation;
+    }
+
+    .fa-check {
+      display:none;
+    }
+  }
+
+  &:focus, &:hover {
+    outline:0;
+
+    & + label .fa-stack {
+      color:#BDBDBD;
+    }
+  }
+
+  &:disabled {
+    & + label .fa-stack {
+      color:@lightGrey;
+    }
+  }
+}
+
+label[for^="show-"] {
+  clear:right;
+}
+
+input[type="text"] {
+  margin-top:4px;
+  display:block;
+  width:100%;
+  font-size: @inputFontSize;
+  font-weight: @inputFontWeight;
+  line-height: 24px;
+  color: @inputColor;
+  background: transparent;
+  border: 0;
+  border-bottom: solid 1px @inputUnderlineNotFocusedColor;
+  padding-bottom:2px;
+
+  &:focus, &:hover {
+    outline:0;
+    border-color: @inputUnderlineFocusedColor;
+    border-width: 2px;
+    padding-bottom: 1px;
+    transition: border-color .5s;
+  }
+}
+
+dl {
+  dt {
+    font-weight: @descriptionTermFontWeight;
+    float:left;
+    width: 190px;
+    text-align: right;
+    padding:0 10px 0 0;
+  }
+
+  dd {
+    margin: 0;
+    clear: right;
+  }
+}
+
+.input-group {
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: solid 1px @buttonBackgroundColor;
+  border-radius: 2px;
+  font-size: @buttonFontSize;
+  font-family: inherit;
+  font-weight: @buttonFontWeight;
+  background-color: @buttonBackgroundColor;
+  text-transform: uppercase;
+  color: @buttonColor;
+  cursor: pointer;
+  transition: box-shadow 0.28s @transitionAnimation, text-shadow 0.28s @transitionAnimation;
+
+  &:focus, &:hover {
+    outline:0;
+    box-shadow: @buttonFocusedShadow;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, .4);
+  }
+}
+
+#color-chart {
+  margin: 15px auto;
+  padding:0;
+  list-style: none;
+
+  li {
+    list-style: none;
+  }
+
+  > li {
+    padding:0;
+  }
+
+  ul {
+    list-style: none;
+    margin:0;
+    padding: 0;
+  }
+
+  ul.fg-colors {
+    padding: 10px 0 10px 5px;
+    transition: padding 1s @transitionAnimation;
+  }
+
+  &.hide-wcag-labels .badge {
+    opacity:0;
+  }
+
+  &.show-wcag-labels .badge {
+    opacity:1;
+  }
+
+  &.hide-bg-colors .fg-colors  {
+    padding-top:10px;
+  }
+
+  &.show-bg-colors .fg-colors {
+    padding-top:30px;
+  }
+
+  &.hide-bg-colors .chart-color h3  {
+    top:-25px;
+  }
+
+  &.show-bg-colors .chart-color h3 {
+    top:0px;
+  }
+}
+
+.chart-color {
+  float: left;
+  min-height: 100px;
+  width: 25%;
+  position: relative;
+  animation-name: appear;
+  animation-timing-function: ease;
+  overflow: hidden;
+
+  &:nth-child(n) {
+    animation-duration: 5s;
+  }
+
+  &:nth-child(2n) {
+    animation-duration: 1s;
+  }
+
+  &:nth-child(3n) {
+    animation-duration: 3s;
+  }
+
+  &:nth-child(4n) {
+    animation-duration: 2s;
+  }
+
+  h3 {
+    display: inline-block;
+    position: absolute;
+    top:-25px;
+    transition: top 1s @transitionAnimation;
+    padding: 0 10px;
+    margin: 0;
+    line-height: 20px;
+    height:20px;
+    border-radius: 0 0 2px 0;
+
+    font-family: @bgColorFont;
+    font-size: @bgColorFontSize;
+    font-weight: @bgColorFontWeight;
+    background: @bgColorBackgroundColor;
+    color: @bgColorColor;
+    box-shadow: @bgColorShadow;
+  }
+}
+
+.fg-color {
+  font-family: @fgColorFont;
+  font-size: @fgColorFontSize;
+  padding: 0 4px;
+  line-height: 20px;
+  height: 40px;
+
+  h4 {
+    display:inline;
+    font-size: @fgColorFontSize;
+    font-weight: normal;
+    line-height: 40px;
+  }
+
+  ul.badges {
+    display:inline-block;
+  }
+}
+
+.badge {
+  opacity: 1;
+  transition: opacity 1s @transitionAnimation;
+  font-size: @complianceBadgeFontSize;
+  display: inline-block;
+  background: @complianceBadgeBackgroundColor;
+  padding: 0 5px;
+  font-family: @complianceBadgeFont;
+  margin-left: 0;
+  color: @complianceBadgeColor;
+  border-radius: 2px;
+  box-shadow: @complianceBadgeShadow;
+}
+
+fieldset {
+  position: relative;
+  border:0;
+  padding: 0;
+  margin-top: 15px;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1240px) {
+  .chart-color {
+    width: 33.333%;
+  }
+}
+
+@media (max-width: 932px) {
+  .chart-color {
+    width: 50%;
+  }
+}
+
+@media (max-width: 622px) {
+  .chart-color {
+    width: 100%;
+  }
+}
