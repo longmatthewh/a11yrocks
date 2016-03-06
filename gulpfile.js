@@ -12,7 +12,7 @@ var jasmine = require('gulp-jasmine-browser');
 var allJsFiles = [
     'bower_components/underscore/underscore-min.js',
     'bower_components/handlebars/handlebars.min.js',
-    'js/vendor/colora11y.js',
+    'bower_components/colora11y/colora11y.min.js',
     'src/js/color-palette.js',
     'test/js/*Spec.js'
 ];
