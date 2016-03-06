@@ -47,22 +47,18 @@
                 <button id="load-colors" type="button">Create Palette</button>
                 <fieldset>
                     <legend class="offscreen">Display Options</legend>
-                    <input type="checkbox" id="show-wcag" checked disabled>
-                    <label for="show-wcag">
-                        <span class="fa-stack">
-                          <i class="fa fa-square fa-stack-2x"></i>
-                          <i class="fa fa-check fa-stack-1x"></i>
-                        </span>
-                        Show WCAG 2.0 Compliance
-                    </label>
-                    <input type="checkbox" id="show-bg-colors" disabled>
-                    <label for="show-bg-colors">
-                        <span class="fa-stack">
-                          <i class="fa fa-square fa-stack-2x"></i>
-                          <i class="fa fa-check fa-stack-1x"></i>
-                        </span>
-                        Show Background Colors
-                    </label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="show-wcag" checked disabled>
+                        <label for="show-wcag">
+                            Show WCAG 2.0 Compliance
+                        </label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="show-bg-colors" disabled>
+                        <label for="show-bg-colors">
+                            Show Background Colors
+                        </label>
+                    </div>
                 </fieldset>
             </form>
         </header>
@@ -99,6 +95,7 @@
             </ul>
         </script>
 
+        <script src="../bower_components/underscore/underscore-min.js"></script>
         <script src="../bower_components/handlebars/handlebars.min.js"></script>
         <script src="../js/vendor/colora11y.js"></script>
         <script src="../js/color-palette.js"></script>

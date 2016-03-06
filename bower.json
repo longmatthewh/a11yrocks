@@ -1,6 +1,7 @@
 {
   "name": "a11yrocks",
   "dependencies": {
-    "handlebars": "^4.0.5"
+    "handlebars": "^4.0.5",
+    "underscore": "^1.8.3"
   }
 }

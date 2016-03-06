@@ -1,5 +1,4 @@
-var a11yColorPalette = (function() {
-    'use strict';
+var a11yColorPalette = (function(_) {
     const NORMAL_TEXT = 'normal', LARGE_TEXT = 'large';
     const AA_COMPLIANCE_PREFIX = 'AA', AAA_COMPLIANCE_PREFIX = 'AAA';
 
@@ -17,7 +16,6 @@ var a11yColorPalette = (function() {
         }
         return formattedHex.toUpperCase();
     }
-
 
     function createComplianceBadge(compliance, badgePrefix, complianceBadges) {
         var complianceText = [];
@@ -54,13 +52,13 @@ var a11yColorPalette = (function() {
 
     function definePaletteFgColors(fgColors, bgColor) {
         var paletteFgColors = [];
-        for (let fgColor of fgColors) {
+        _.each(fgColors, function(fgColor) {
             fgColor = fgColor.trim();
             if (isColor(fgColor)) {
                 fgColor = formatHex(fgColor);
                 paletteFgColors.push(definePaletteFgColor(bgColor, fgColor));
             }
-        }
+        });
         return paletteFgColors;
     }
 
@@ -77,13 +75,14 @@ var a11yColorPalette = (function() {
             colors: []
         };
 
-        for (let bgColor of colors.bgColors) {
+        _.each(colors.bgColors, function(bgColor) {
             bgColor = bgColor.trim();
             if (isColor(bgColor)) {
                 bgColor = formatHex(bgColor);
                 colorPalette.colors.push(definePaletteColor(bgColor, colors.fgColors));
             }
-        }
+        });
+
         return colorPalette;
     }
 
@@ -91,11 +90,9 @@ var a11yColorPalette = (function() {
         defineA11yPalette : defineA11yPalette
     };
 
-})();
+})(_);
 
 var a11yColorPaletteUI = (function() {
-    "use strict";
-
     const HIDE_WCAG_CLASS = 'hide-wcag-labels', SHOW_WCAG_CLASS = 'show-wcag-labels';
     const HIDE_BG_COLOR_CLASS = 'hide-bg-colors', SHOW_BG_COLOR_CLASS = 'show-bg-colors';
     const FG_COLOR_TEMPLATE_ID = 'color-chart-fg-color-template', COLOR_CHART_TEMPLATE_ID = 'color-chart-template';
@@ -200,4 +197,4 @@ var a11yColorPaletteUI = (function() {
     return {
         initPalette : initPalette
     };
-})();
+})( );
