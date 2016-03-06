@@ -17,7 +17,7 @@ var allJsFiles = [
     'test/js/*Spec.js'
 ];
 
-gulp.task('travis', ['jshint','lesshint']);
+gulp.task('travis', ['jshint','lesshint', 'test-headless']);
 
 gulp.task('default', ['watch']);
 
@@ -58,7 +58,7 @@ gulp.task('jshint', function () {
 });
 
 gulp.task('lesshint', function () {
-    return gulp.src('src/less/**/*.less')
+    return gulp.src('src/less/*.less')
         .pipe(lesshint())
         .pipe(lesshint.reporter())
 });

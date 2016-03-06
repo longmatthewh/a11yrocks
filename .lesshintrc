@@ -1,0 +1,14 @@
+{
+    "zeroUnit": {
+        "enabled": false
+    },
+    "propertyOrdering": {
+        "enabled": false
+    },
+    "importantRule": {
+        "enabled": false
+    },
+    "finalNewline": {
+        "enabled": false
+    }
+}
