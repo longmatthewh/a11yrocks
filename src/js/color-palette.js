@@ -101,7 +101,7 @@ var a11yColorPaletteUI = (function() {
     function clearExistingChart() {
         var existingColorChart = document.getElementById(COLOR_CHART_ID);
         if (existingColorChart) {
-            existingColorChart.remove();
+            document.querySelector('main').removeChild(existingColorChart);
         }
     }
 
