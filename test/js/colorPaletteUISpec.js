@@ -73,6 +73,9 @@ describe('a11yColorPaletteUI', function() {
         document.getElementById('show-wcag').disabled = true;
         document.getElementById('show-bg-colors').disabled = true;
 
+        document.getElementById('show-wcag').checked = false;
+        document.getElementById('show-bg-colors').disabled = true;
+
         a11yColorPaletteUI.initPalette();
 
         expect(document.getElementById('show-wcag').disabled).toBe(true);
@@ -94,6 +97,9 @@ describe('a11yColorPaletteUI', function() {
 
         expect(document.getElementById('show-wcag').disabled).toBe(false);
         expect(document.getElementById('show-bg-colors').disabled).toBe(false);
+
+        expect(document.getElementById('show-wcag').checked).toBe(true);
+        expect(document.getElementById('show-bg-colors').checked).toBe(false);
     });
 
 });

@@ -115,8 +115,8 @@ var a11yColorPaletteUI = (function() {
     function drawColors() {
         var colors = buildColors();
         trackEvent('create palette clicked', [colors.bgColors.length, colors.fgColors.length].join('|'));
-        enabledCheckboxes();
         clearExistingChart();
+        enableCheckboxes();
         var fgColorsSource = document.getElementById(FG_COLOR_TEMPLATE_ID);
         Handlebars.registerPartial('paletteFgColors', fgColorsSource.innerHTML);
 
@@ -127,9 +127,14 @@ var a11yColorPaletteUI = (function() {
         document.body.querySelector('main').appendChild(templateDiv.firstChild);
     }
 
-    function enabledCheckboxes() {
-        document.getElementById('show-wcag').disabled = false;
-        document.getElementById('show-bg-colors').disabled = false;
+    function enableCheckboxes() {
+        var showWCAG = document.getElementById('show-wcag');
+        var showBgColors = document.getElementById('show-bg-colors');
+
+        showWCAG.disabled = false;
+        showWCAG.checked = true;
+        showBgColors.disabled = false;
+        showBgColors.checked = false;
     }
 
     function showHide(addClass, removeClass) {
