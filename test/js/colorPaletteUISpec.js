@@ -12,8 +12,7 @@ describe('a11yColorPaletteUI', function() {
         '<input type="text" id="fg-colors" value="#333,#444,#555">' +
         '<div id="color-chart-template">chart template</div>' +
         '<div id="color-chart-fg-color-template">fg color template</div>' +
-        '<div id="color-chart"></div>' +
-        '<main></main>';
+        '<main><div id="color-chart"></div></main>';
 
     beforeEach(function() {
         var wrapper = document.createElement('div');
