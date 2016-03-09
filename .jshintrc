@@ -2,8 +2,7 @@
   "globals" : {
     "colora11y" : false,
     "Handlebars" : false,
-    "ga" : false,
-    "_" : false
+    "ga" : false
   },
 
   // ENFORCING OPTIONS

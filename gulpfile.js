@@ -10,7 +10,6 @@ var watch = require('gulp-watch');
 var jasmine = require('gulp-jasmine-browser');
 
 var allJsFiles = [
-    'bower_components/underscore/underscore-min.js',
     'bower_components/handlebars/handlebars.min.js',
     'bower_components/colora11y/colora11y.min.js',
     'src/js/color-palette.js',

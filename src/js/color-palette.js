@@ -1,4 +1,4 @@
-var a11yColorPalette = (function(_) {
+var a11yColorPalette = (function() {
     const NORMAL_TEXT = 'normal', LARGE_TEXT = 'large';
     const AA_COMPLIANCE_PREFIX = 'AA', AAA_COMPLIANCE_PREFIX = 'AAA';
 
@@ -52,13 +52,15 @@ var a11yColorPalette = (function(_) {
 
     function definePaletteFgColors(fgColors, bgColor) {
         var paletteFgColors = [];
-        _.each(fgColors, function(fgColor) {
-            fgColor = fgColor.trim();
+
+        for (var idx = 0; idx < fgColors.length; idx++) {
+            var fgColor = fgColors[idx].trim();
             if (isColor(fgColor)) {
                 fgColor = formatHex(fgColor);
                 paletteFgColors.push(definePaletteFgColor(bgColor, fgColor));
             }
-        });
+        }
+
         return paletteFgColors;
     }
 
@@ -75,14 +77,13 @@ var a11yColorPalette = (function(_) {
             colors: []
         };
 
-        _.each(colors.bgColors, function(bgColor) {
-            bgColor = bgColor.trim();
+        for (var idx = 0; idx < colors.bgColors.length; idx++) {
+            var bgColor = colors.bgColors[idx].trim();
             if (isColor(bgColor)) {
                 bgColor = formatHex(bgColor);
                 colorPalette.colors.push(definePaletteColor(bgColor, colors.fgColors));
             }
-        });
-
+        }
         return colorPalette;
     }
 
@@ -90,7 +91,7 @@ var a11yColorPalette = (function(_) {
         defineA11yPalette : defineA11yPalette
     };
 
-})(_);
+})();
 
 var a11yColorPaletteUI = (function() {
     const HIDE_WCAG_CLASS = 'hide-wcag-labels', SHOW_WCAG_CLASS = 'show-wcag-labels';
