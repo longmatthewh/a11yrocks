@@ -9,26 +9,28 @@ var lesshint = require('gulp-lesshint');
 var watch = require('gulp-watch');
 var jasmine = require('gulp-jasmine-browser');
 
-var allJsFiles = [
+var testJsFiles = [
     'bower_components/handlebars/handlebars.min.js',
     'bower_components/colora11y/colora11y.min.js',
-    'src/js/color-palette.js',
+    'js/color-palette.js',
     'test/js/*Spec.js'
 ];
 
-gulp.task('travis', ['jshint','lesshint', 'test-headless']);
+gulp.task('travis', ['jshint','lesshint', 'jsmin', 'test-headless']);
 
 gulp.task('default', ['watch']);
 
-gulp.task('test-browser', function () {
-    return gulp.src(allJsFiles)
-        .pipe(watch(allJsFiles))
+gulp.task('test-browser', ['watch', 'test-jasmine']);
+
+gulp.task('test-jasmine', function () {
+    return gulp.src(testJsFiles)
+        .pipe(watch(testJsFiles))
         .pipe(jasmine.specRunner())
         .pipe(jasmine.server({port: 8000}));
 });
 
 gulp.task('test-headless', function() {
-    return gulp.src(allJsFiles)
+    return gulp.src(testJsFiles)
         .pipe(jasmine.specRunner({console: true}))
         .pipe(jasmine.headless());
 });

@@ -9,9 +9,7 @@ var a11yColorPalette = (function() {
     function formatHex(hexColor) {
         var formattedHex = hexColor;
         if (formattedHex.length === 4) {
-            var r = formattedHex.charAt(1);
-            var g = formattedHex.charAt(2);
-            var b = formattedHex.charAt(3);
+            let [,r,g,b] = formattedHex;
             formattedHex = '#' + r + r + g + g + b + b;
         }
         return formattedHex.toUpperCase();
