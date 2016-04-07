@@ -1,0 +1,14 @@
+<ul class="fg-colors">
+    {{#each fgColors}}
+        <li class="fg-color" style="color:{{this.color}}">
+            <h4>{{this.color}}</h4>
+            {{#if compliance.badges.length}}
+                <ul class="badges">
+                    {{#each compliance.badges}}
+                        <li class="badge">{{this}}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </li>
+    {{/each}}
+</ul>

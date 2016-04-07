@@ -1,0 +1,8 @@
+<ul id="color-chart">
+    {{#each colors}}
+        <li class="chart-color" style="background-color:{{this.color}}">
+            <h3><span class="offscreen">foreground colors for</span> {{this.color}}</h3>
+            {{> paletteFgColors}}
+        </li>
+    {{/each}}
+</ul>

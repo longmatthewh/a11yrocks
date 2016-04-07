@@ -1,21 +1,5 @@
-@import "variables.less";
-@import "a11y.less";
 
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-  height:100%;
-}
-
-body {
-  font-family: @bodyFont;
-  font-size: @bodyFontSize;
-  font-weight: @bodyFontWeight;
-  margin:0;
-}
+@import "main.less";
 
 header {
   padding: 0 20px;
@@ -56,37 +40,6 @@ label[for^="show-"] {
   display: inline-block;
 }
 
-input[type="checkbox"] {
-  font-size:@inputFontSize;
-  margin-left:0;
-}
-
-.checkbox-group {
-  height:30px;
-}
-
-input[type="text"] {
-  margin-top:4px;
-  display:block;
-  width:100%;
-  font-size: @inputFontSize;
-  font-weight: @inputFontWeight;
-  line-height: 24px;
-  color: @inputColor;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  border-bottom: solid 1px @inputUnderlineNotFocusedColor;
-  padding-bottom:2px;
-
-  &:focus, &:hover {
-    outline:0;
-    border-color: @inputUnderlineFocusedColor;
-    border-width: 2px;
-    padding-bottom: 1px;
-    transition: border-color .5s;
-  }
-}
 
 dl {
   dt {
@@ -105,26 +58,6 @@ dl {
 
 .input-group {
   margin-top: 10px;
-}
-
-button {
-  margin-top: 20px;
-  padding: 10px 15px;
-  border: solid 1px @buttonBackgroundColor;
-  border-radius: 2px;
-  font-size: @buttonFontSize;
-  font-family: inherit;
-  font-weight: @buttonFontWeight;
-  background-color: @buttonBackgroundColor;
-  text-transform: uppercase;
-  color: @buttonColor;
-  cursor: pointer;
-  transition: box-shadow 0.28s @transitionAnimation;
-
-  &:focus, &:hover {
-    outline:0;
-    box-shadow: @buttonFocusedShadow;
-  }
 }
 
 #color-chart {
