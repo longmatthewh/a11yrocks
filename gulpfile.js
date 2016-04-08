@@ -36,7 +36,7 @@ gulp.task('test-headless', function() {
 });
 
 gulp.task('less', function () {
-    return gulp.src('src/less/*.less')
+    return gulp.src(['src/less/main.less', 'src/less/color-palette.less'])
         .pipe(less())
         .pipe(nano({
             autoprefixer: {add:'true'}
