@@ -3,6 +3,7 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 66.2 62.8" style="enable-background:new 0 0 66.2 62.8;" xml:space="preserve">
 <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Oswald:700');
 	.st0{fill:#9E9E9E;stroke:#424242;stroke-width:0.3938;stroke-linecap:square;stroke-linejoin:round;}
 	.st1{fill:#E0E0E0;stroke:#424242;stroke-width:0.3016;stroke-linecap:square;stroke-linejoin:round;}
 	.st2{fill:#F5F5F5;stroke:#424242;stroke-width:0.3016;stroke-linecap:square;stroke-linejoin:round;}
@@ -20,7 +21,7 @@
 	.st14{fill:#00BCD4;stroke:#424242;stroke-width:0.3012;stroke-linecap:square;stroke-linejoin:round;}
 	.st15{fill:#FFFF00;stroke:#424242;stroke-width:0.3012;stroke-linecap:square;stroke-linejoin:round;}
 	.st16{fill:#212121;}
-	.st17{font-family:'Oswald-Bold';}
+	.st17{font-family:'Oswald';font-weight:700;}
 	.st18{font-size:12px;}
 </style>
 <g>
