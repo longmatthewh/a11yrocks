@@ -20,8 +20,8 @@
 	.st14{fill:#00BCD4;stroke:#424242;stroke-width:0.3012;stroke-linecap:square;stroke-linejoin:round;}
 	.st15{fill:#FFFF00;stroke:#424242;stroke-width:0.3012;stroke-linecap:square;stroke-linejoin:round;}
 	.st16{fill:#212121;}
-	.st17{font-family:'Impact';}
-	.st18{font-size:13.3923px;}
+	.st17{font-family:'Oswald-Bold';}
+	.st18{font-size:12px;}
 </style>
 <g>
 	<g id="black_and_white">
@@ -73,5 +73,5 @@
 		</g>
 	</g>
 </g>
-<text transform="matrix(0.9848 0 -0.1736 0.9848 33.6994 48.6283)"><tspan x="0" y="0" class="st16 st17 st18">A11Y </tspan><tspan x="-8.2" y="12.1" class="st16 st17 st18">ROCKS!</tspan></text>
+<text transform="matrix(0.9848 0 -0.1736 0.9848 34.1047 47.6283)"><tspan x="0" y="0" class="st16 st17 st18">A11Y </tspan><tspan x="-8" y="12.1" class="st16 st17 st18">ROCKS!</tspan></text>
 </svg>
