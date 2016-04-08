@@ -74,11 +74,49 @@ button, .button {
   }
 }
 
+body:not(#home) {
+  nav {
+    position: relative;
+    height: 50px;
+    background: @navBackgroundColor;
+    border-bottom: solid 1px @navBorderColor;
+    padding: 5px 10px;
+    margin: 0 -20px;
+    text-transform: uppercase;
+
+    a {
+      display: inline-block;
+      line-height: 40px;
+      font-family: @titleFont;
+      font-style: italic;
+      font-size: 34px;
+      color: @titleFontColor;
+      padding-left: 40px;
+      background: url(@navLogoImage) 0 2px no-repeat;
+      text-decoration: none;
+
+      &:focus, &:hover {
+        outline:0;
+        background-image: url(@navLogoFocusedImage);
+        color:@titleFontFocusedColor;
+      }
+    }
+  }
+}
+
 #home {
   h2 {
     margin: 0;
     margin-bottom: 10px;
     font-weight:100;
+  }
+
+  .tagline  {
+    margin: 20px;
+    color: #424242;
+    font-size: 30px;
+    text-align: center;
+    font-family: @homeTaglineFont;
   }
 
   #site-logo {
@@ -89,7 +127,7 @@ button, .button {
   }
 
   nav {
-    font-family: Roboto;
+    font-family: @bodyFont;
     width: 380px;
     margin:0 auto;
     display: block;
@@ -121,11 +159,16 @@ button, .button {
     a {
       display: inline-block;
       padding: 10px 0;
-      color: #000000;
-      border: solid 1px #9E9E9E;
+      color: @homeNavColor;
+      border: solid 1px @homeNavBorderColor;
       text-align: center;
       text-decoration: none;
       width: 100%;
+
+      &:hover, &:focus {
+        outline:0;
+        background: @homeNavFocusedColor;
+      }
     }
   }
 
@@ -148,16 +191,6 @@ button, .button {
       p {
         margin:0 0 10px 0;
       }
-    }
-  }
-
-  header {
-    p  {
-      margin: 20px;
-      color: #424242;
-      font-size: 30px;
-      text-align: center;
-      font-family: "Roboto Condensed";
     }
   }
 

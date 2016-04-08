@@ -7,21 +7,23 @@
 	.st1{fill:#E0E0E0;stroke:#424242;stroke-width:0.3016;stroke-linecap:square;stroke-linejoin:round;}
 	.st2{fill:#F5F5F5;stroke:#424242;stroke-width:0.3016;stroke-linecap:square;stroke-linejoin:round;}
 	.st3{fill:#424242;stroke:#424242;stroke-width:0.3938;stroke-linecap:square;stroke-linejoin:round;}
-	.st4{fill-rule:evenodd;clip-rule:evenodd;fill:#212121;}
-	.st5{clip-path:url(#SVGID_2_);}
-	.st6{fill:#424242;stroke:#424242;stroke-width:0.3919;stroke-linecap:square;stroke-linejoin:round;}
-	.st7{fill:#0277BD;stroke:#424242;stroke-width:0.3919;stroke-linecap:square;stroke-linejoin:round;}
-	.st8{fill:#00BCD4;stroke:#424242;stroke-width:0.3002;stroke-linecap:square;stroke-linejoin:round;}
-	.st9{fill:#FFFF00;stroke:#424242;stroke-width:0.3002;stroke-linecap:square;stroke-linejoin:round;}
-	.st10{fill:#424242;stroke:#424242;stroke-width:0.3919;stroke-linecap:square;}
-	.st11{clip-path:url(#SVGID_4_);}
-	.st12{fill:#424242;stroke:#424242;stroke-width:0.3933;stroke-linecap:square;stroke-linejoin:round;}
-	.st13{fill:#0277BD;stroke:#424242;stroke-width:0.3933;stroke-linecap:square;stroke-linejoin:round;}
-	.st14{fill:#00BCD4;stroke:#424242;stroke-width:0.3012;stroke-linecap:square;stroke-linejoin:round;}
-	.st15{fill:#FFFF00;stroke:#424242;stroke-width:0.3012;stroke-linecap:square;stroke-linejoin:round;}
-	.st16{fill:#212121;}
-	.st17{font-family:'Impact';}
-	.st18{font-size:13.3923px;}
+	.st4{display:none;fill-rule:evenodd;clip-rule:evenodd;fill:#212121;}
+	.st5{display:none;}
+	.st6{display:inline;}
+	.st7{display:inline;clip-path:url(#SVGID_2_);}
+	.st8{fill:#424242;stroke:#424242;stroke-width:0.3919;stroke-linecap:square;stroke-linejoin:round;}
+	.st9{fill:#0277BD;stroke:#424242;stroke-width:0.3919;stroke-linecap:square;stroke-linejoin:round;}
+	.st10{fill:#00BCD4;stroke:#424242;stroke-width:0.3002;stroke-linecap:square;stroke-linejoin:round;}
+	.st11{fill:#FFFF00;stroke:#424242;stroke-width:0.3002;stroke-linecap:square;stroke-linejoin:round;}
+	.st12{fill:#424242;stroke:#424242;stroke-width:0.3919;stroke-linecap:square;}
+	.st13{display:inline;clip-path:url(#SVGID_4_);}
+	.st14{fill:#424242;stroke:#424242;stroke-width:0.3933;stroke-linecap:square;stroke-linejoin:round;}
+	.st15{fill:#0277BD;stroke:#424242;stroke-width:0.3933;stroke-linecap:square;stroke-linejoin:round;}
+	.st16{fill:#00BCD4;stroke:#424242;stroke-width:0.3012;stroke-linecap:square;stroke-linejoin:round;}
+	.st17{fill:#FFFF00;stroke:#424242;stroke-width:0.3012;stroke-linecap:square;stroke-linejoin:round;}
+	.st18{display:inline;fill:#212121;}
+	.st19{font-family:'Impact';}
+	.st20{font-size:13.3923px;}
 </style>
 <g>
 	<g id="black_and_white">
@@ -40,38 +42,38 @@
 		c1.8-1.4,4.4-6,3.8-9.7c-0.8-4.7-8.3-4.8-14.3-4.2C11.3,17.7,10.1,18.1,9,19.2z M37.7,21.7c-0.6,3.2,1.2,6.6,2.2,8
 		c2.7,3.8,10.7,5.3,14.7,2c2.6-2.1,4.2-7,3.1-10.7c-1.2-4-6.8-4-12.5-3.5C41.2,17.9,38.2,18.8,37.7,21.7z M4.9,18.6
 		c0.9,0.3,2.6,0.2,3-0.5C7.1,17.9,5.1,17.6,4.9,18.6z M57.9,18.1c-0.2,0.7,2,0.8,2.8,0.5C60.6,17.7,58.6,17.9,57.9,18.1z"/>
-	<g id="right_eye">
+	<g id="right_eye" class="st5">
 		<defs>
 			<path id="SVGID_1_" d="M37.7,21.8c-0.5,3.3,1.2,6.5,2.2,7.9c2.7,3.8,10.6,5.3,14.7,2c2.6-2.1,4.2-7,3.1-10.6
 				c-1.2-4-6.9-4.1-12.6-3.6C41.1,17.9,38.1,18.8,37.7,21.8z"/>
 		</defs>
-		<clipPath id="SVGID_2_">
+		<clipPath id="SVGID_2_" class="st6">
 			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
 		</clipPath>
-		<g class="st5">
-			<polygon class="st6" points="34.9,2.8 30.5,3 6.7,33.9 			"/>
-			<polygon class="st7" points="63.3,6.8 34.3,25.2 54.7,20.5 10.8,54.4 25.3,30.6 7.2,33.7 34.9,2.8 			"/>
-			<polygon class="st8" points="57.3,8.2 31.7,26.3 48.9,23.1 16.4,47.7 27.3,29.6 11.2,31.7 35.2,5.1 			"/>
-			<polygon class="st9" points="50.6,10.1 28.6,27.7 43.6,24.9 20.9,43 31.3,28.1 16,29.7 35.5,8.1 			"/>
-			<polygon class="st10" points="20.5,31.7 25.3,30.5 10.8,54.2 			"/>
+		<g class="st7">
+			<polygon class="st8" points="34.9,2.8 30.5,3 6.7,33.9 			"/>
+			<polygon class="st9" points="63.3,6.8 34.3,25.2 54.7,20.5 10.8,54.4 25.3,30.6 7.2,33.7 34.9,2.8 			"/>
+			<polygon class="st10" points="57.3,8.2 31.7,26.3 48.9,23.1 16.4,47.7 27.3,29.6 11.2,31.7 35.2,5.1 			"/>
+			<polygon class="st11" points="50.6,10.1 28.6,27.7 43.6,24.9 20.9,43 31.3,28.1 16,29.7 35.5,8.1 			"/>
+			<polygon class="st12" points="20.5,31.7 25.3,30.5 10.8,54.2 			"/>
 		</g>
 	</g>
-	<g id="lefteye">
+	<g id="lefteye" class="st5">
 		<defs>
 			<path id="SVGID_3_" d="M9,19.2c-2.8,3-0.8,10.1,1.9,12.4c3.2,2.8,10.2,2.3,13.4-0.2c1.8-1.4,4.5-6,3.8-9.7
 				c-0.8-4.7-8.4-5-14.3-4.2C11.2,17.8,10,18.1,9,19.2z"/>
 		</defs>
-		<clipPath id="SVGID_4_">
+		<clipPath id="SVGID_4_" class="st6">
 			<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
 		</clipPath>
-		<g class="st11">
-			<polygon class="st12" points="34.9,2.5 30.5,2.8 7.2,33.7 			"/>
-			<polygon class="st13" points="63.3,6.7 34.3,25 54.6,20.4 10.8,54.6 25.3,30.6 7.2,33.7 34.9,2.6 			"/>
-			<polygon class="st14" points="57.3,8.1 31.7,26.3 48.9,23.1 16.4,47.8 27.3,29.6 11.2,31.8 35.2,5 			"/>
-			<polygon class="st15" points="50.6,9.9 28.6,27.7 43.6,24.9 20.9,43.1 31.3,28.1 16,29.7 35.5,8 			"/>
-			<polygon class="st12" points="20.5,31.7 25.3,30.5 10.8,54.4 			"/>
+		<g class="st13">
+			<polygon class="st14" points="34.9,2.5 30.5,2.8 7.2,33.7 			"/>
+			<polygon class="st15" points="63.3,6.7 34.3,25 54.6,20.4 10.8,54.6 25.3,30.6 7.2,33.7 34.9,2.6 			"/>
+			<polygon class="st16" points="57.3,8.1 31.7,26.3 48.9,23.1 16.4,47.8 27.3,29.6 11.2,31.8 35.2,5 			"/>
+			<polygon class="st17" points="50.6,9.9 28.6,27.7 43.6,24.9 20.9,43.1 31.3,28.1 16,29.7 35.5,8 			"/>
+			<polygon class="st14" points="20.5,31.7 25.3,30.5 10.8,54.4 			"/>
 		</g>
 	</g>
 </g>
-<text transform="matrix(0.9848 0 -0.1736 0.9848 33.6994 48.6283)"><tspan x="0" y="0" class="st16 st17 st18">A11Y </tspan><tspan x="-8.2" y="12.1" class="st16 st17 st18">ROCKS!</tspan></text>
+<text transform="matrix(0.9848 0 -0.1736 0.9848 33.6994 48.6283)" class="st5"><tspan x="0" y="0" class="st18 st19 st20">A11Y </tspan><tspan x="-8.2" y="12.1" class="st18 st19 st20">ROCKS!</tspan></text>
 </svg>

@@ -1,21 +1,41 @@
 @font: "Roboto", sans-serif;
 @condensedFont: "Roboto Condensed", sans-serif;
 @monoFont: "Roboto Mono";
+@titleFont: "Impact";
 @extraLargeFontSize: 55px;
 @fontSize: 16px;
 @smallerFontSize: 14px;
 @lightFontWeight: 300;
 @normalFontWeight: normal;
 
+@darkBlue:#01579b;
+@darkTeal:#00838f;
+@yellow:#FFFF00;
+@extraDarkGrey: #212121;
 @darkGrey: #424242;
+@grey: #9E9E9E;
 @lightGrey: #E0E0E0;
-@extraLightGrey: #FEFEFE;
-@greyShadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-@darkGreyShadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 20px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.6);
+@extraLightGrey: #F5F5F5;
+
+@greyShadow: 0 2px 2px 0 fade(@extraDarkGrey, 14%), 0 1px 5px 0 fade(@extraDarkGrey, 14%), 0 3px 1px -2px fade(@extraDarkGrey, 20%);
+@darkGreyShadow: 0 6px 10px 0 fade(@extraDarkGrey, 14%), 0 1px 20px 0 fade(@extraDarkGrey, 14%), 0 3px 5px -1px fade(@extraDarkGrey, 60%);
 
 @bodyFont: @font;
 @bodyFontSize: @fontSize;
 @bodyFontWeight: @lightFontWeight;
+
+@navBackgroundColor: @extraLightGrey;
+@navBorderColor: @lightGrey;
+@navLogoImage: '../img/logo-simple.svg';
+@navLogoFocusedImage: '../img/logo-simple-gray.svg';
+
+@titleFontColor: @extraDarkGrey;
+@titleFontFocusedColor: @darkGrey;
+
+@homeNavColor: @extraDarkGrey;
+@homeNavBorderColor: @grey;
+@homeNavFocusedColor: @lightGrey;
+@homeTaglineFont: @condensedFont;
 
 @headingFont: @condensedFont;
 @headingFontSize: @extraLargeFontSize;
