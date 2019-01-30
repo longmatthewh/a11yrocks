@@ -1,6 +1,6 @@
 @import "main.less";
 
-header {
+header, main {
   padding: 0 20px;
 }
 
@@ -26,19 +26,10 @@ form {
   border-radius: 2px;
 }
 
-label[for="bg-colors"], label[for="fg-colors"] {
+label[for="bg-colors"] {
   display: block;
   color: @inputLabelColor;
 }
-
-label[for="fg-colors"] {
-  margin-top: 15px;
-}
-
-label[for^="show-"] {
-  display: inline-block;
-}
-
 
 dl {
   dt {
@@ -53,10 +44,6 @@ dl {
     margin: 0;
     clear: right;
   }
-}
-
-.input-group {
-  margin-top: 10px;
 }
 
 #color-chart {
@@ -77,45 +64,24 @@ dl {
     margin:0;
     padding: 0;
   }
-
-  ul.fg-colors {
-    padding: 10px 0 10px 5px;
-    transition: padding 1s @transitionAnimation;
-  }
-
-  &.hide-wcag-labels .badge {
-    opacity:0;
-  }
-
-  &.show-wcag-labels .badge {
-    opacity:1;
-  }
-
-  &.hide-bg-colors .fg-colors  {
-    padding-top:10px;
-  }
-
-  &.show-bg-colors .fg-colors {
-    padding-top:30px;
-  }
-
-  &.hide-bg-colors .chart-color h3  {
-    top:-25px;
-  }
-
-  &.show-bg-colors .chart-color h3 {
-    top:0px;
-  }
 }
 
-.chart-color {
-  float: left;
-  min-height: 100px;
-  width: 25%;
-  position: relative;
+h3 {
+  font-weight: normal;
+}
+
+.color-set {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 180px;
+
+  height: 180px;
+  padding: 0;
+  box-shadow: @complianceBadgeShadow;
+
   animation-name: appear;
   animation-timing-function: ease;
-  overflow: hidden;
 
   &:nth-child(n) {
     animation-duration: 5s;
@@ -132,66 +98,33 @@ dl {
   &:nth-child(4n) {
     animation-duration: 2s;
   }
-
-  h3 {
-    display: inline-block;
-    position: absolute;
-    top:-25px;
-    transition: top 1s @transitionAnimation;
-    padding: 0 10px;
-    margin: 0;
-    line-height: 20px;
-    height:20px;
-    border-radius: 0 0 2px 0;
-
-    font-family: @bgColorFont;
-    font-size: @bgColorFontSize;
-    font-weight: @bgColorFontWeight;
-    background: @bgColorBackgroundColor;
-    color: @bgColorColor;
-    box-shadow: @bgColorShadow;
-  }
 }
 
-.fg-color {
-  font-family: @fgColorFont;
-  font-size: @fgColorFontSize;
-  padding: 0 4px;
-  line-height: 20px;
-  height: 40px;
+.color-set-color {
+  height: 180px;
+  padding: 10px 0 0 10px;
 
   h4 {
-    display:inline;
-    font-size: @fgColorFontSize;
+    padding: 0 0 10px;
+    margin: 0;
     font-weight: normal;
-    line-height: 40px;
-  }
-
-  ul.badges {
-    display:inline-block;
+    font-size: 21px;
   }
 }
 
-.badge {
-  opacity: 1;
-  transition: opacity 1s @transitionAnimation;
-  font-size: @complianceBadgeFontSize;
-  display: inline-block;
-  background: @complianceBadgeBackgroundColor;
-  padding: 0 5px;
-  font-family: @complianceBadgeFont;
-  margin-left: 0;
-  color: @complianceBadgeColor;
-  border-radius: 2px;
-  box-shadow: @complianceBadgeShadow;
+.ratio {
+  display: block;
+  padding: 0 0 10px;
 }
 
-fieldset {
-  position: relative;
-  border:0;
-  padding: 0;
-  margin-top: 15px;
+
+#color-chart {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: auto auto auto ;
+  grid-template-rows: 180px;
 }
+
 
 @keyframes appear {
   0% {
@@ -203,20 +136,14 @@ fieldset {
   }
 }
 
-@media (max-width: 1240px) {
-  .chart-color {
-    width: 33.333%;
+@media (max-width: 1000px) {
+  #color-chart {
+    grid-template-columns: auto auto ;
   }
 }
 
-@media (max-width: 932px) {
-  .chart-color {
-    width: 50%;
-  }
-}
-
-@media (max-width: 622px) {
-  .chart-color {
-    width: 100%;
+@media (max-width: 670px) {
+  #color-chart {
+    grid-template-columns: auto;
   }
 }

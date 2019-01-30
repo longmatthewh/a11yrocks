@@ -11,7 +11,7 @@ var jasmine = require('gulp-jasmine-browser');
 
 var testJsFiles = [
     'bower_components/handlebars/handlebars.min.js',
-    'bower_components/colora11y/colora11y.min.js',
+    'bower_components/colora11y/colora11y.js',
     'js/color-palette.js',
     'test/js/*Spec.js'
 ];

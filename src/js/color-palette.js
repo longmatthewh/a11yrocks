@@ -30,59 +30,69 @@ var a11yColorPalette = (function() {
         }
     }
 
-    function calcCompliance(bgColor, fgColor) {
+    function calcCompliance(color1, color2) {
         var complianceBadges = [];
-        var compliance = colora11y.calcContrastCompliance(fgColor, bgColor);
+        var compliance = colora11y.calcContrastCompliance(color1, color2);
         createComplianceBadge(compliance.aa, AA_COMPLIANCE_PREFIX, complianceBadges);
         createComplianceBadge(compliance.aaa, AAA_COMPLIANCE_PREFIX, complianceBadges);
         return complianceBadges;
     }
 
-    function definePaletteFgColor(bgColor, fgColor) {
-        var paletteFgColor = {
-            color: fgColor,
+    function definePaletteColorSet(color1, color2) {
+        var paletteColorSet = {
+            color1: color1,
+            color2:color2,
             compliance: {
-                badges: calcCompliance(bgColor, fgColor)
+                badges: calcCompliance(color1, color2),
+                ratio: colora11y.calcContrastCompliance(color1, color2).ratio
             }
         };
-        return paletteFgColor;
-    }
-
-    function definePaletteFgColors(fgColors, bgColor) {
-        var paletteFgColors = [];
-
-        for (var idx = 0; idx < fgColors.length; idx++) {
-            var fgColor = fgColors[idx].trim();
-            if (isColor(fgColor)) {
-                fgColor = formatHex(fgColor);
-                paletteFgColors.push(definePaletteFgColor(bgColor, fgColor));
-            }
-        }
-
-        return paletteFgColors;
-    }
-
-    function definePaletteColor(bgColor, fgColors) {
-        var paletteColor = {
-            color: bgColor,
-            fgColors: definePaletteFgColors(fgColors, bgColor)
-        };
-        return paletteColor;
+        return paletteColorSet;
     }
 
     function defineA11yPalette(colors) {
+        colors.push(formatHex('#000'), formatHex('#FFF'));
+
         var colorPalette = {
-            colors: []
+            colorsSets: [],
+            invalidColorSets: []
         };
 
-        for (var idx = 0; idx < colors.bgColors.length; idx++) {
-            var bgColor = colors.bgColors[idx].trim();
-            if (isColor(bgColor)) {
-                bgColor = formatHex(bgColor);
-                colorPalette.colors.push(definePaletteColor(bgColor, colors.fgColors));
+        var uniqueColors = [];
+        for (var idx = 0; idx < colors.length; idx++) {
+            var color = colors[idx].trim();
+            if (isColor(color)) {
+                color = formatHex(color);
+                if (uniqueColors.indexOf(color) === -1) {
+                    uniqueColors.push(color);
+                }
             }
         }
+
+        for (var i = 0; i < uniqueColors.length-1; i++) {
+            for (var j = i+1; j < uniqueColors.length; j++) {
+                var color1 = uniqueColors[i];
+                var color2 = uniqueColors[j];
+                var colorSet = definePaletteColorSet(color1, color2);
+                colorPalette.colorsSets.push(colorSet);
+            }
+        }
+
+        colorPalette.colorsSets.sort(sortSets);
         return colorPalette;
+    }
+
+    
+    function sortSets(set1, set2) {
+        var ratio1 = parseFloat(set1.compliance.ratio.split(':')[0]);
+        var ratio2 = parseFloat(set2.compliance.ratio.split(':')[0]);
+        if (ratio1 > ratio2) {
+            return -1;
+        } else if (ratio1 < ratio2) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     return {
@@ -92,9 +102,7 @@ var a11yColorPalette = (function() {
 })();
 
 var a11yColorPaletteUI = (function() {
-    const HIDE_WCAG_CLASS = 'hide-wcag-labels', SHOW_WCAG_CLASS = 'show-wcag-labels';
-    const HIDE_BG_COLOR_CLASS = 'hide-bg-colors', SHOW_BG_COLOR_CLASS = 'show-bg-colors';
-    const FG_COLOR_TEMPLATE_ID = 'color-chart-fg-color-template', COLOR_CHART_TEMPLATE_ID = 'color-chart-template';
+    const COLOR_CHART_TEMPLATE_ID = 'color-chart-template';
     const COLOR_CHART_ID = 'color-chart';
 
     function clearExistingChart() {
@@ -105,19 +113,13 @@ var a11yColorPaletteUI = (function() {
     }
 
     function buildColors() {
-        return {
-            bgColors: document.getElementById('bg-colors').value.split(','),
-            fgColors: document.getElementById('fg-colors').value.split(',')
-        };
+        return document.getElementById('bg-colors').value.split(',');
     }
 
     function drawColors() {
         var colors = buildColors();
-        trackEvent('create palette clicked', [colors.bgColors.length, colors.fgColors.length].join('|'));
+        trackEvent('create palette clicked', colors.length);
         clearExistingChart();
-        enableCheckboxes();
-        var fgColorsSource = document.getElementById(FG_COLOR_TEMPLATE_ID);
-        Handlebars.registerPartial('paletteFgColors', fgColorsSource.innerHTML);
 
         var source = document.getElementById(COLOR_CHART_TEMPLATE_ID).innerHTML;
         var template = Handlebars.compile(source);
@@ -126,76 +128,14 @@ var a11yColorPaletteUI = (function() {
         document.body.querySelector('main').appendChild(templateDiv.firstChild);
     }
 
-    function enableCheckboxes() {
-        var showWCAG = document.getElementById('show-wcag');
-        var showBgColors = document.getElementById('show-bg-colors');
-
-        showWCAG.disabled = false;
-        showWCAG.checked = true;
-        showBgColors.disabled = false;
-        showBgColors.checked = false;
-    }
-
-    function showHide(addClass, removeClass) {
-        var colorChart = document.getElementById(COLOR_CHART_ID);
-        if (colorChart) {
-            colorChart.classList.remove(removeClass);
-            colorChart.classList.add(addClass);
-        }
-    }
-
     function trackEvent(action, label) {
         try {
             ga('send', 'event', 'user interaction', action, label);
         } catch(error) {}
     }
 
-    function toggleProp(toggleCheckbox, hideClass, showClass, trackHide, trackShow) {
-        if (!toggleCheckbox.checked) {
-            trackHide();
-            showHide(hideClass, showClass);
-        } else {
-            trackShow();
-            showHide(showClass, hideClass);
-        }
-    }
-
-    function toggleWCAG(showWCAGCheckbox) {
-        toggleProp(
-            showWCAGCheckbox,
-            HIDE_WCAG_CLASS,
-            SHOW_WCAG_CLASS,
-            function() {
-                trackEvent('wcag toggle clicked', 'hide');
-            },
-            function() {
-                trackEvent('wcag toggle clicked', 'show');
-            }
-        );
-    }
-
-    function toggleBgColor(showBgColorCheckbox) {
-        toggleProp(
-            showBgColorCheckbox,
-            HIDE_BG_COLOR_CLASS,
-            SHOW_BG_COLOR_CLASS,
-            function() {
-                trackEvent('bgColor toggle clicked', 'hide');
-            },
-            function() {
-                trackEvent('bgColor toggle clicked', 'show');
-            }
-        );
-    }
-
     function initPalette() {
         document.getElementById('load-colors').addEventListener('click', drawColors);
-        document.getElementById('show-wcag').addEventListener('change', function () {
-            toggleWCAG(this);
-        });
-        document.getElementById('show-bg-colors').addEventListener('change', function () {
-            toggleBgColor(this);
-        });
     }
 
     return {
