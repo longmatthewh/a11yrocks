@@ -7,10 +7,11 @@ export default class ColorPalette extends Component {
     constructor(props) {
         const DEFAULT_COLORS = ['#F34A53','#FAE3B4','#AAC789','#437356','#1E4147'];
         super(props);
+        this.colors = DEFAULT_COLORS;
         this.onPaletteChange = this.onPaletteChange.bind(this);
         this.state = {
             colorPalette: {
-               colorSets :  this.generateColorSets(DEFAULT_COLORS)
+                colorSets :  this.generateColorSets(DEFAULT_COLORS)
             }
         };
     }
@@ -73,7 +74,8 @@ export default class ColorPalette extends Component {
         return complianceBadges;
     }
 
-    generateColorSets(colors) {
+    generateColorSets(requestedColors) {
+        let colors = requestedColors.slice(0)
         colors.push(this.formatHex('#000'), this.formatHex('#FFF'));
 
         var colorsSets = [];
@@ -115,13 +117,13 @@ export default class ColorPalette extends Component {
     }
 
     render() {
-        const paletteColors = this.props.paletteColors;
+        const paletteColors = this.state.colorPalette.paletteColors;
         const colorSets = this.state.colorPalette.colorSets;
         return (
-            <div>
-                <ColorPaletteForm paletteColors={paletteColors} onPaletteChange={this.onPaletteChange}/>
+            <React.Fragment>
+                <ColorPaletteForm paletteColors={this.colors} onPaletteChange={this.onPaletteChange}/>
                 <ColorPaletteColors colorSets={colorSets}/>
-            </div>
+            </React.Fragment>
         );
     }
 }

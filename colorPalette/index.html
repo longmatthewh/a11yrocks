@@ -40,45 +40,10 @@
                 </dl>
                 This tool should help you visualize an entire palette of all color combinations with accessibility in mind. The combinations are ordered by color contrast ratio. Try it out with these sample colors, and then create a palette of your own:
             </div>
-            <form>
-                <h2 class="offscreen">Define Palette Colors</h2>
-                <label for="bg-colors">Colors (comma separated HEX)</label>
-                <input type="text" id="bg-colors" value="#F34A53,#FAE3B4,#AAC789,#437356,#1E4147">
-                <button id="load-colors" type="button">Create Palette</button>
-            </form>
-
             <h2 class="offscreen">Color Palette</h2>
+            <div id="app"/>
         </main>
         <footer>by Matt Long</footer>
-
-        <script id="color-chart-template" type="text/x-handlebars-template">
-            <ul id="color-chart">
-                {{~#each colorsSets~}}
-                <li class="color-set"><div class="color-set-color color-set-color1" style="background-color:{{this.color1}};color:{{this.color2}}"><h3>{{this.color2}}<span class="offscreen"> and  {{this.color1}}</span></h3><span class="ratio"><span class="offscreen">contrast ratio: </span>{{this.compliance.ratio}}</span>{{~#if this.compliance.badges.length~}}
-                        <h4 class="offscreen">level of compliance</h4>
-                        <ul class="badges">
-                            {{~#each this.compliance.badges~}}
-                            <li class="badge">{{this}}</li>
-                            {{~/each~}}
-                        </ul>{{else}}<h4 class="offscreen">level of compliance</h4>not at all compliant
-                        {{~/if~}}
-                </div><div class="color-set-color color-set-color2" aria-hidden="true" style="background-color:{{this.color2}};color:{{this.color1}}"><h3>{{this.color1}}</h3><span class="ratio">{{this.compliance.ratio}}</span>{{~#if this.compliance.badges.length~}}
-                        <ul class="badges">
-                            {{~#each this.compliance.badges~}}
-                            <li class="badge">{{this}}</li>
-                            {{~/each~}}
-                        </ul>{{else}}<h4 class="offscreen">level of compliance</h4>not at all compliant
-                        {{~/if~}}
-                    </div></li>
-                {{~/each~}}
-            </ul>
-        </script>
-
-        <script src="../bower_components/handlebars/handlebars.min.js"></script>
-        <script src="../bower_components/colora11y/colora11y.min.js"></script>
-        <script src="../js/color-palette.js"></script>
-        <script>
-            a11yColorPaletteUI.initPalette();
-        </script>
+        <script src="../js/build.js"></script>
     </body>
 </html>

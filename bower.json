@@ -1,7 +1,0 @@
-{
-  "name": "a11yrocks",
-  "dependencies": {
-    "handlebars": "^4.0.5",
-    "colora11y": "^1.0.0"
-  }
-}

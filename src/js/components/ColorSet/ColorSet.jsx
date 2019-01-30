@@ -26,17 +26,6 @@ export default class ColorSet extends Component {
                     <span class="ratio"><span class="offscreen">contrast ratio: </span>{ratio}</span>
                     <h4 class="offscreen">level of compliance</h4>
                     <ComplianceBadges compliance={compliance}/>
-
-                    {
-                        (compliance.badges.length > 0) ? (
-                            <Fragment>
-                                <div>foo</div>
-                                <div>foo2</div>
-                            </Fragment>
-                        ) : (
-                            <div>bar</div>
-                        )
-                    }
                 </div>
                 <div class="color-set-color color-set-color2" aria-hidden="true" style={div2Style}>
                     <h3>{color1}</h3>
