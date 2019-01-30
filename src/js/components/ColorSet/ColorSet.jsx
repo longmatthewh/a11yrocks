@@ -22,12 +22,14 @@ export default class ColorSet extends Component {
         return (
             <li class="color-set">
                 <div class="color-set-color color-set-color1" style={div1Style}>
+                    <i class="a11y-non-text fa fa-adjust" aria-hidden="true"></i>
                     <h3>{color2}<span class="offscreen"> and {color1}</span></h3>
                     <span class="ratio"><span class="offscreen">contrast ratio: </span>{ratio}</span>
                     <h4 class="offscreen">level of compliance</h4>
                     <ComplianceBadges compliance={compliance}/>
                 </div>
                 <div class="color-set-color color-set-color2" aria-hidden="true" style={div2Style}>
+                    <i class="a11y-non-text fa fa-adjust" aria-hidden="true"></i>
                     <h3>{color1}</h3>
                     <span class="ratio"><span class="offscreen">contrast ratio: </span>{ratio}</span>
                     <h4 class="offscreen">level of compliance</h4>

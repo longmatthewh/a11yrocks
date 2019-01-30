@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import ColorPalette from '../components/ColorPalette/ColorPalette.jsx';
+import styles from '../../less/color-palette.less';
 
 class App extends React.Component {
 

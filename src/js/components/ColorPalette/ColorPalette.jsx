@@ -70,6 +70,9 @@ export default class ColorPalette extends Component {
         var complianceBadges = [];
         var compliance = colora11y.calcContrastCompliance(color1, color2);
         this.createComplianceBadge(compliance.aa, AA_COMPLIANCE_PREFIX, complianceBadges);
+        if (compliance.aa.nontext.pass) {
+            complianceBadges.push(AA_COMPLIANCE_PREFIX + ' non-text');
+        }
         this.createComplianceBadge(compliance.aaa, AAA_COMPLIANCE_PREFIX, complianceBadges);
         return complianceBadges;
     }
